@@ -1,1 +1,4 @@
 hosts
+inventory
+group_vars/dbservers.yml
+group_vars/webservers.yml

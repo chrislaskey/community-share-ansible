@@ -6,6 +6,8 @@
 
 ## Installation
 
+#### Initial Setup
+
 Follow the [Ansible Installation Guide](https://docs.ansible.com/ansible/intro_installation.html) to install the latest version of Ansible locally.
 
 Clone the project locally:
@@ -15,10 +17,11 @@ local $ git clone git@github.com:chrislaskey/ansible-community-share.git
 local $ cd ansible-community-share
 ```
 
-Create an Ansible hosts file:
+Add a `hosts` file:
 
 ```bash
-local $ echo "my-host.com" > hosts
+local $ copy hosts.example hosts
+local $ vim hosts
 ```
 
 Transfer the bootstrap script to the remote host:
@@ -38,4 +41,13 @@ Confirm ansible can connect and run on the host:
 
 ```bash
 local $ ./host-ping
+```
+
+#### Running Playbooks
+
+Update the `inventory` file with the correct hostnames:
+
+```bash
+local $ copy inventory.example inventory
+local $ vim inventory
 ```
