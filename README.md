@@ -13,41 +13,41 @@ Follow the [Ansible Installation Guide](https://docs.ansible.com/ansible/intro_i
 Clone the project locally:
 
 ```bash
-local $ git clone git@github.com:chrislaskey/ansible-community-share.git
-local $ cd ansible-community-share
+$ git clone git@github.com:chrislaskey/ansible-community-share.git
+$ cd ansible-community-share
 ```
 
-Add a `hosts` file:
+Add a host inventory file:
 
 ```bash
-local $ copy hosts.example hosts
-local $ vim hosts
+$ copy hosts/production.example hosts
+$ vim production
 ```
 
 Transfer the bootstrap script to the remote host:
 
 ```bash
-local $ scp bootstrap your-host.com:~/
-local $ ssh your-host.com
+$ scp bin/bootstrap your-host.com:~/
+$ ssh your-host.com
 ```
 
-Run the bootstrap script on the remote host
+Run the bootstrap script on the **remote** host
 
 ```bash
-remote $ ./bootstrap
+$ ./bootstrap
 ```
 
 Confirm ansible can connect and run on the host:
 
 ```bash
-local $ ./host-ping
+$ bin/ping
 ```
 
 #### Running Playbooks
 
-Update the `inventory` file with the correct hostnames:
+Update the host inventory file with the correct hostnames:
 
 ```bash
-local $ copy inventory.example inventory
-local $ vim inventory
+$ copy hosts/production.example hosts/production
+$ vim hosts/production
 ```

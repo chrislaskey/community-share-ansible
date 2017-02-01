@@ -1,0 +1,7 @@
+---
+
+- name: Install Ruby
+  apt:
+    name: ruby
+    state: present
+  become: true
