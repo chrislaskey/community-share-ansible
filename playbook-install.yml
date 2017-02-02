@@ -1,5 +1,10 @@
 ---
+- hosts: all
 
 - hosts: webservers
+  environment:
+    PATH: "{{ ansible_env.PATH }}:/home/ubuntu/.gem/ruby/2.3.0/bin/"
   roles:
     - ruby
+    - node
+    - rails

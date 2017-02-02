@@ -1,0 +1,11 @@
+---
+
+- name: Install Node Repository
+  shell: curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+
+- name: Install Package
+  apt:
+    name: nodejs
+    state: present
+    update_cache: true
+  become: true

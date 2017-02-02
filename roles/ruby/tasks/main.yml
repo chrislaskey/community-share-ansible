@@ -2,6 +2,14 @@
 
 - name: Install Ruby
   apt:
-    name: ruby
+    name:
+      - build-essential
+      - curl
+      - git
+      - liblzma-dev
+      - libpq-dev
+      - libsqlite3-dev
+      - zlib1g-dev
+      - ruby-dev
     state: present
   become: true
