@@ -1,0 +1,19 @@
+---
+
+- name: Install puma upstart file
+  template:
+    src: etc/init/puma.conf
+    dest: /etc/init/puma.conf
+  become: yes
+
+- name: Install puma-manager upstart file
+  template:
+    src: etc/init/puma.conf
+    dest: /etc/init/puma-manager.conf
+  become: yes
+
+- name: Install puma config
+  template:
+    src: etc/puma.conf
+    dest: /etc/puma.conf
+  become: yes

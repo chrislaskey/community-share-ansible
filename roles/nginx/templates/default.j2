@@ -1,6 +1,6 @@
 upstream app {
-    # Path to Unicorn SOCK file, as defined previously
-    server unix:/home/deploy/current/shared/sockets/unicorn.sock fail_timeout=0;
+    # Path to Puma SOCK file, as defined previously
+    server unix:/home/deploy/current/shared/sockets/puma.sock fail_timeout=0;
 }
 
 server {

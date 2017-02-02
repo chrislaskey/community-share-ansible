@@ -5,3 +5,17 @@
     name: nginx
     state: present
   become: true
+
+- name: Install nginx config
+  template:
+    src: default.j2
+    dest: /etc/nginx/sites-available/earthwatch-community-share
+  become: true
+
+- name: Enable site
+  file:
+    src: /etc/nginx/sites-available/earthwatch-community-share
+    dest: /etc/nginx/sites-enabled/earthwatch-community-share
+    state: link
+  notify: nginx restart
+  become: true

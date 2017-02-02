@@ -8,7 +8,8 @@
   roles:
     - common
     - postgres
-    - nginx
     - node
     - ruby
     - app
+    - puma
+    - nginx
