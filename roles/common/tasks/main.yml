@@ -1,0 +1,16 @@
+---
+
+- name: Install packages
+  apt:
+    name:
+      - build-essential
+      - curl
+      - git
+      - liblzma-dev
+      - libpq-dev
+      - libsqlite3-dev
+      - wget
+      - zlib1g-dev
+    state: present
+  become: true
+

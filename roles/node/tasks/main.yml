@@ -1,9 +1,9 @@
 ---
 
-- name: Install Node Repository
+- name: Install node repository
   shell: curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
-- name: Install Package
+- name: Install packages
   apt:
     name: nodejs
     state: present

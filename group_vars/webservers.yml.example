@@ -1,5 +1,9 @@
 ---
 
 admin_user_emails: "first@example.com,second@example.com"
+devise_secret_key: "<random-string--default-is-over-100-characters-long"
 facebook_key: "<key>"
 facebook_secret: "<secret>"
+postgresql_database: "<database>"
+postgresql_username: "<username>"
+postgresql_password: "<password>"

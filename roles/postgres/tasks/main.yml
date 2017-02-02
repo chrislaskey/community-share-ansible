@@ -1,0 +1,25 @@
+---
+
+- name: Install packages
+  apt:
+    name:
+      - postgresql
+      - postgresql-contrib
+      - python-psycopg2
+    state: present
+  become: true
+
+- name: Create database
+  postgresql_db:
+    name: "{{ postgresql_database }}"
+  become: true
+  become_user: postgres
+
+- name: Create users
+  postgresql_user:
+    db: "{{ postgresql_database }}"
+    name: "{{ postgresql_username }}"
+    password: "{{ postgresql_password }}"
+    role_attr_flags: "CREATEDB,NOSUPERUSER"
+  become: true
+  become_user: postgres
