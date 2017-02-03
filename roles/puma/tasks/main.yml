@@ -1,25 +1,20 @@
 ---
 
-- name: Install puma init.d file
+- name: Install puma systemd file
   template:
-    src: etc/init.d/puma
-    dest: /etc/init.d/puma
+    src: etc/systemd/system/puma.service
+    dest: /etc/systemd/system/puma.service
     mode: 0755
-  become: yes
+  become: true
 
-- name: Run puma on boot
-  shell: "update-rc.d -f puma defaults"
-  become: yes
+- name: Enable puma on restart
+  shell: systemctl enable puma.service
+  become: true
 
-- name: Install run-puma binary
-  template:
-    src: usr/local/bin/run-puma
-    dest: /usr/local/bin/run-puma
-    mode: 0755
-  become: yes
+- name: Reload systemctl daemon
+  shell: systemctl daemon-reload
+  become: true
 
-- name: Install puma config
-  template:
-    src: etc/puma.conf
-    dest: /etc/puma.conf
-  become: yes
+- name: Restart puma service
+  shell: systemctl stop puma.service
+  become: true

@@ -22,3 +22,6 @@
 
 - name: Install project database
   shell: cd current && bash -lc "bundle exec rake db:migrate db:seed"
+
+- name: Precompile assets
+  shell: cd current && bash -lc "bundle exec rails assets:precompile"
