@@ -10,8 +10,6 @@
 #                    initscript to be placed in /etc/init.d.
 ### END INIT INFO
 
-source /home/ubuntu/current/.env
-
 # Author: Darío Javier Cravero <dario@exordo.com>
 #
 # Do NOT "set -e"
@@ -311,6 +309,8 @@ config_bundler() {
 }
 
 config_bundler
+
+source /home/ubuntu/current/.env
 
 case "$1" in
   start)
