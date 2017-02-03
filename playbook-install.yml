@@ -1,5 +1,11 @@
 ---
+
 - hosts: all
+
+- hosts: dbservers
+  roles:
+    - common
+    - postgres
 
 - hosts: webservers
   environment:
@@ -7,7 +13,6 @@
     RAILS_ENV: production
   roles:
     - common
-    - postgres
     - node
     - ruby
     - app
