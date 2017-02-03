@@ -1,6 +1,10 @@
 ---
 
 admin_user_emails: "first@example.com,second@example.com"
+aws_access_key_id: "<key>"
+aws_region: "<region>"
+aws_s3_bucket: "<bucket>"
+aws_secret_access_key: "<key>"
 devise_secret_key: "<random-string--default-is-over-100-characters-long"
 facebook_key: "<key>"
 facebook_secret: "<secret>"
