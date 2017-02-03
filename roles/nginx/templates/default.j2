@@ -1,13 +1,13 @@
 upstream app {
     # Path to Puma SOCK file, as defined previously
-    server unix:/home/deploy/current/tmp/puma/socket fail_timeout=0;
+    server unix:/home/ubuntu/current/tmp/puma/socket fail_timeout=0;
 }
 
 server {
     listen 80;
     server_name localhost;
 
-    root /home/deploy/current/public;
+    root /home/ubuntu/current/public;
 
     try_files $uri/index.html $uri @app;
 
