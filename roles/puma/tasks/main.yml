@@ -1,15 +1,21 @@
 ---
 
-- name: Install puma upstart file
+- name: Install puma init.d file
   template:
-    src: etc/init/puma.conf
-    dest: /etc/init/puma.conf
+    src: etc/init.d/puma
+    dest: /etc/init.d/puma
+    mode: 0755
   become: yes
 
-- name: Install puma-manager upstart file
+- name: Run puma on boot
+  shell: "update-rc.d -f puma defaults"
+  become: yes
+
+- name: Install run-puma binary
   template:
-    src: etc/init/puma.conf
-    dest: /etc/init/puma-manager.conf
+    src: usr/local/bin/run-puma
+    dest: /usr/local/bin/run-puma
+    mode: 0755
   become: yes
 
 - name: Install puma config
