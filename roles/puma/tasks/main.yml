@@ -15,6 +15,14 @@
   shell: systemctl daemon-reload
   become: true
 
-- name: Restart puma service
+- name: Stop puma service
   shell: systemctl stop puma.service
+  become: true
+
+- name: Remove puma temp files
+  shell: rm -rf /home/ubuntu/current/tmp/puma
+  become: true
+
+- name: Start puma service
+  shell: systemctl start puma.service
   become: true

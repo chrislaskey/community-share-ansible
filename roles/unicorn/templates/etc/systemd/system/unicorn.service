@@ -1,0 +1,19 @@
+[Unit]
+Description=Unicorn Rails Server
+After=network.target
+
+[Service]
+Type=forking
+User=ubuntu
+Restart=always
+RestartSec=10
+WorkingDirectory=/home/ubuntu/current
+PIDFile=/home/ubuntu/current/tmp/unicorn.pid
+ExecStart=/home/ubuntu/.gem/ruby/2.3.0/bin/bundle exec unicorn -D -E production -c /home/ubuntu/current/config/unicorn.rb
+ExecReload=/bin/kill -s USR2 $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+TimeoutSec=15
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

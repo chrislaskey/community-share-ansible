@@ -16,5 +16,5 @@
     - node
     - ruby
     - app
-    - puma
+    - unicorn
     - nginx

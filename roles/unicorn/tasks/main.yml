@@ -1,0 +1,20 @@
+---
+
+- name: Install unicorn systemd file
+  template:
+    src: etc/systemd/system/unicorn.service
+    dest: /etc/systemd/system/unicorn.service
+    mode: 0755
+  become: true
+
+- name: Enable unicorn on restart
+  shell: systemctl enable unicorn.service
+  become: true
+
+- name: Reload systemctl daemon
+  shell: systemctl daemon-reload
+  become: true
+
+- name: Restart unicorn service
+  shell: systemctl restart unicorn.service
+  become: true

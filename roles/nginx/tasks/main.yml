@@ -24,5 +24,8 @@
   file:
     path: /etc/nginx/sites-enabled/default
     state: absent
-  notify: nginx restart
+  become: true
+
+- name: Reload nginx configs
+  shell: systemctl reload nginx.service
   become: true
