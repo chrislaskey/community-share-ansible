@@ -18,12 +18,6 @@
     src: .env.j2
     dest: /home/ubuntu/current/.env
 
-- name: Create puma run directory
-  file:
-    path: /home/ubuntu/current/tmp/puma
-    state: directory
-    mode: 0755
-
 - name: Install project gems
   shell: cd current && bash -lc "bundle install"
 

@@ -17,7 +17,6 @@
     src: /etc/nginx/sites-available/earthwatch-community-share
     dest: /etc/nginx/sites-enabled/earthwatch-community-share
     state: link
-  notify: nginx restart
   become: true
 
 - name: Disable default site
