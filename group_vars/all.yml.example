@@ -1,0 +1,5 @@
+---
+
+postgresql_database: "<database>"
+postgresql_username: "<username>"
+postgresql_password: "<password>"
