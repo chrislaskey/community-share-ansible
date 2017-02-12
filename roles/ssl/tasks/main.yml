@@ -1,0 +1,39 @@
+---
+
+- name: Install packages
+  apt:
+    name: letsencrypt
+    state: present
+  become: true
+
+- name: Check if SSL cert already exists
+  stat:
+    path: "/etc/letsencrypt/live/{{ lets_encrypt_domain }}/fullchain.pem"
+  become: true
+  register: ssl_cert
+
+- name: Generate SSL cert
+  shell: "letsencrypt certonly --non-interactive --keep-until-expiring --email {{ lets_encrypt_email }} --webroot -w /home/ubuntu/current/public -d www.{{ lets_encrypt_domain}} -d {{ lets_encrypt_domain }}"
+  become: true
+  when: ssl_cert is defined and ssl_cert.stat.exists == false
+
+- name: Accept renewal ToS
+  shell: letsencrypt renew --dry-run --agree-tos
+  become: true
+  when: ssl_cert is defined and ssl_cert.stat.exists == false
+
+- name: Setup renewal cron job
+  cron:
+    name: Renew SSL
+    minute: 38
+    hour: 5
+    job: /usr/bin/letsencrypt renew
+  become: yes
+
+- name: Setup reload nginx cron job
+  cron:
+    name: Reload nginx
+    minute: 43
+    hour: 5
+    job: /bin/systemctl reload nginx
+  become: yes

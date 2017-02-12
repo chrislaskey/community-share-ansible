@@ -9,13 +9,13 @@
 - name: Install nginx config
   template:
     src: default.j2
-    dest: /etc/nginx/sites-available/earthwatch-community-share
+    dest: /etc/nginx/sites-available/community-share
   become: true
 
 - name: Enable site
   file:
-    src: /etc/nginx/sites-available/earthwatch-community-share
-    dest: /etc/nginx/sites-enabled/earthwatch-community-share
+    src: /etc/nginx/sites-available/community-share
+    dest: /etc/nginx/sites-enabled/community-share
     state: link
   become: true
 
@@ -26,5 +26,5 @@
   become: true
 
 - name: Reload nginx configs
-  shell: systemctl reload nginx.service
+  shell: systemctl reload nginx
   become: true

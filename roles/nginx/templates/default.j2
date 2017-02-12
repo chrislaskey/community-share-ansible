@@ -2,9 +2,32 @@ upstream app {
   server unix:/home/ubuntu/current/tmp/unicorn.sock fail_timeout=0;
 }
 
+{% if ssl_cert is defined and ssl_cert.stat.exists == true %}
 server {
   listen 80;
+  listen [::]:80;
+  server_name {{ lets_encrypt_domain }};
+  return 301 https://{{ lets_encrypt_domain }}$request_uri;
+}
+{% endif %}
+
+server {
+  {% if ssl_cert is defined and ssl_cert.stat.exists == true %}
+
+  listen 443 ssl http2;
+  listen [::]:443 ssl http2;
   server_name localhost;
+
+  ssl_certificate /etc/letsencrypt/live/{{ lets_encrypt_domain }}/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/{{ lets_encrypt_domain }}/privkey.pem;
+
+  {% else %}
+
+  listen 80;
+  listen [::]:80;
+  server_name localhost;
+
+  {% endif %}
 
   root /home/ubuntu/current/public;
 

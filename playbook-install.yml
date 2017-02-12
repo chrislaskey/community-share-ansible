@@ -1,5 +1,6 @@
 ---
 
+  # This noop is required to gather `ansible_env` facts
 - hosts: all
 
 - hosts: dbservers
@@ -17,4 +18,10 @@
     - ruby
     - app
     - unicorn
+    - nginx
+    - ssl
+
+  # Run nginx again to ensure SSL changes are
+- hosts: webservers
+  roles:
     - nginx

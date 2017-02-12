@@ -8,7 +8,7 @@
   become: true
 
 - name: Enable unicorn on restart
-  shell: systemctl enable unicorn.service
+  shell: systemctl enable unicorn
   become: true
 
 - name: Reload systemctl daemon
@@ -16,5 +16,5 @@
   become: true
 
 - name: Restart unicorn service
-  shell: systemctl restart unicorn.service
+  shell: systemctl restart unicorn
   become: true
