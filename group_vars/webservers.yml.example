@@ -6,7 +6,6 @@ lets_encrypt_email: "<email>"
 # For AWS S3 information see:
 # http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
 
-admin_user_emails: "first@example.com,second@example.com"
 aws_s3_access_key_id: "<key>"
 aws_s3_bucket: "<bucket>"
 aws_s3_host_name: "<host-name>"

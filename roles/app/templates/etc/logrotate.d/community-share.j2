@@ -1,0 +1,10 @@
+/home/ubuntu/current/log/*.log {
+       weekly
+       rotate 10
+       create 0644 ubuntu ubuntu
+       copytruncate
+       delaycompress
+       compress
+       notifempty
+       missingok
+}

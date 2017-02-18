@@ -30,3 +30,9 @@
 
 - name: Precompile assets
   shell: cd current && bash -lc "bundle exec rails assets:precompile"
+
+- name: Add log rotation config
+  template:
+    src: etc/logrotate.d/community-share.j2
+    dest: /etc/logrotate.d/community-share
+  become: true
