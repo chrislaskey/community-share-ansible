@@ -17,8 +17,9 @@ Community Share runs on top of:
 
 - Ubuntu 16.04
 - Unicorn
-- Nginx
 - PostgreSQL
+- LetsEncrypt for SSL
+- Nginx
 
 ## Installation
 
