@@ -2,6 +2,8 @@
 
 > Ansible configuration management for standing up a Community Share application
 
+See the [Community Share repository](https://github.com/chrislaskey/community-share) for more details about the application.
+
 ## About
 
 Community Share uses:
@@ -10,8 +12,6 @@ Community Share uses:
 - Amazon S3 for file storage
 - Facebook for user authentication
 - Ansible for server configuration and code deployment
-
-See the [Community Share repository](https://github.com/chrislaskey/community-share) for more details about the application itself.
 
 Community Share runs on top of:
 
