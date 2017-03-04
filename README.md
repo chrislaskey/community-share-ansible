@@ -2,9 +2,27 @@
 
 > Ansible configuration management for standing up a Community Share application
 
-**Note**: Target architecture is Ubuntu 16.06.
+## About
+
+Community Share uses:
+
+- Amazon EC2 for compute
+- Amazon S3 for file storage
+- Facebook for user authentication
+- Ansible for server configuration and code deployment
+
+See the [Community Share repository](https://github.com/chrislaskey/community-share) for more details about the application itself.
+
+Community Share runs on top of:
+
+- Ubuntu 16.04
+- Unicorn
+- Nginx
+- PostgreSQL
 
 ## Installation
+
+**Note**: Target architecture is Ubuntu 16.04.
 
 #### Initial Setup
 
@@ -50,4 +68,16 @@ Update the host inventory file with the correct hostnames:
 ```bash
 $ copy hosts/production.example hosts/production
 $ vim hosts/production
+```
+
+To configure the server run the playbook:
+
+```bash
+$ bin/install
+```
+
+To deploy application code changes also use:
+
+```bash
+$ bin/install
 ```
