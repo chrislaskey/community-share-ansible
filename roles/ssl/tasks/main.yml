@@ -13,7 +13,7 @@
   register: ssl_cert
 
 - name: Generate SSL cert
-  shell: "letsencrypt certonly --non-interactive --keep-until-expiring --email {{ lets_encrypt_email }} --webroot -w /home/ubuntu/current/public -d www.{{ lets_encrypt_domain}} -d {{ lets_encrypt_domain }}"
+  shell: "letsencrypt certonly --non-interactive --agree-tos --keep-until-expiring --email {{ lets_encrypt_email }} --webroot -w /home/ubuntu/current/public -d www.{{ lets_encrypt_domain}} -d {{ lets_encrypt_domain }}"
   become: true
   when: ssl_cert is defined and ssl_cert.stat.exists == false
 
