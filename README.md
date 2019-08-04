@@ -10,7 +10,7 @@ Community Share uses:
 
 - Amazon EC2 for compute
 - Amazon S3 for file storage
-- Facebook for user authentication
+- LinkedIn for user authentication
 - Ansible for server configuration and code deployment
 
 Community Share runs on top of:
